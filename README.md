@@ -27,11 +27,12 @@ Cross-platform desktop GUI for [microsoft/markitdown](https://github.com/microso
 
 Go to [Releases](../../releases) and download the binary for your platform:
 
-| Platform | File |
-|----------|------|
-| Windows | `MarkItDown-Windows.exe` |
-| Linux | `MarkItDown-Linux` |
-| macOS | `MarkItDown-macOS` |
+| Platform | File | Description |
+|----------|------|-------------|
+| Windows | `MarkItDown-Windows-Setup.exe` | Installer (Start Menu + Desktop shortcut) |
+| Windows | `MarkItDown-Windows-Portable.exe` | Portable (no installation needed) |
+| Linux | `MarkItDown-Linux` | Standalone binary |
+| macOS | `MarkItDown-macOS` | Standalone binary |
 
 ## Run from Source
 
