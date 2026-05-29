@@ -377,8 +377,15 @@ class MainWindow(ctk.CTk):
             return
 
         count = 0
+        seen: dict[str, int] = {}
         for result in done:
-            name = Path(os.path.basename(result.file_path)).stem + ".md"
+            stem = Path(os.path.basename(result.file_path)).stem
+            if stem in seen:
+                seen[stem] += 1
+                name = f"{stem}_{seen[stem]}.md"
+            else:
+                seen[stem] = 0
+                name = f"{stem}.md"
             out_path = os.path.join(directory, name)
             with open(out_path, "w", encoding="utf-8") as fh:
                 fh.write(result.markdown)
