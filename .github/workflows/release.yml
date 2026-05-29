@@ -45,22 +45,32 @@ jobs:
             run.py
         shell: bash
 
-      - name: Rename artifact
+      - name: Rename portable artifact
         run: |
           cd dist
           if [ "${{ matrix.ext }}" = ".exe" ]; then
-            mv MarkItDown.exe MarkItDown-${{ matrix.name }}.exe
+            cp MarkItDown.exe MarkItDown-Windows-Portable.exe
           else
             mv MarkItDown MarkItDown-${{ matrix.name }}
             chmod +x MarkItDown-${{ matrix.name }}
           fi
         shell: bash
 
+      - name: Build Windows Installer
+        if: matrix.os == 'windows-latest'
+        env:
+          APP_VERSION: ${{ github.ref_name }}
+        run: iscc installer.iss
+        shell: cmd
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: MarkItDown-${{ matrix.name }}
-          path: dist/MarkItDown-${{ matrix.name }}*
+          path: |
+            dist/MarkItDown-${{ matrix.name }}*
+            dist/MarkItDown-Windows-Portable.exe
+            dist/MarkItDown-Windows-Setup.exe
 
   release:
     needs: build
