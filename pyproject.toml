@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "markitdown-app"
+version = "1.0.0"
+description = "Cross-platform desktop GUI for microsoft/markitdown"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "BOSSincrypto" }]
+dependencies = [
+    "customtkinter>=5.2.0",
+    "markitdown[all]>=0.1.6",
+]
+
+[project.scripts]
+markitdown-app = "app.main:main"
+
+[tool.hatch.build.targets.sdist]
+include = ["app/"]
