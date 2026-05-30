@@ -1,8 +1,10 @@
 import os
 import platform
 import queue
+import re
 from pathlib import Path
 from tkinter import filedialog
+from urllib.parse import urlparse
 
 import customtkinter as ctk
 
@@ -191,6 +193,12 @@ class MainWindow(ctk.CTk):
         url = dialog.get_input()
         if url and url.strip():
             url = url.strip()
+            if not url.startswith(("http://", "https://")):
+                url = "https://" + url
+            parsed = urlparse(url)
+            if not parsed.netloc or "." not in parsed.netloc:
+                self._status.configure(text="Invalid URL")
+                return
             if url not in self._files:
                 self._files.append(url)
                 self._refresh_file_list()
@@ -354,8 +362,7 @@ class MainWindow(ctk.CTk):
 
         default_name = "output.md"
         if self._selected_file:
-            base = os.path.basename(self._selected_file)
-            default_name = Path(base).stem + ".md"
+            default_name = self._safe_filename(self._selected_file)
 
         path = filedialog.asksaveasfilename(
             defaultextension=".md",
@@ -379,7 +386,7 @@ class MainWindow(ctk.CTk):
         count = 0
         seen: dict[str, int] = {}
         for result in done:
-            stem = Path(os.path.basename(result.file_path)).stem
+            stem = Path(self._safe_filename(result.file_path)).stem
             if stem in seen:
                 seen[stem] += 1
                 name = f"{stem}_{seen[stem]}.md"
@@ -392,6 +399,19 @@ class MainWindow(ctk.CTk):
             count += 1
 
         self._status.configure(text=f"Saved {count} file(s) to {directory}")
+
+    @staticmethod
+    def _safe_filename(source: str) -> str:
+        if source.startswith(("http://", "https://")):
+            parsed = urlparse(source)
+            name = parsed.netloc.replace("www.", "")
+            path = parsed.path.rstrip("/")
+            if path and path != "/":
+                name += "_" + Path(path).stem
+            name = re.sub(r'[<>:"/\\|?*]', "_", name)
+            return name + ".md"
+        base = os.path.basename(source)
+        return Path(base).stem + ".md"
 
     def _change_theme(self, choice: str):
         ctk.set_appearance_mode(choice.lower())
