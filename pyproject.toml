@@ -13,6 +13,7 @@ authors = [{ name = "BOSSincrypto" }]
 dependencies = [
     "customtkinter>=5.2.0",
     "markitdown[all]>=0.1.6",
+    "youtube-transcript-api>=1.2.0",
 ]
 
 [project.scripts]
