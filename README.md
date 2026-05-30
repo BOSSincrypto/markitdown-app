@@ -23,7 +23,7 @@ No browser. No cloud. Runs locally on Windows, macOS, and Linux.
 ## 📸 Screenshots
 
 <div align="center">
-<img width="461" height="369" alt="MarkItDown Desktop — Dark Mode" src="https://github.com/user-attachments/assets/a4J2214-0UJ/-4ibj-0UUc-9/2I90J12/0a" />
+<img width="461" height="369" alt="MarkItDown Desktop — Dark Mode" src="https://github.com/user-attachments/assets/3017f17d-7001-46b8-89dc-cb04d243db8e" />
 </div>
 ---
 
