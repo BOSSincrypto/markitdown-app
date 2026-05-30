@@ -37,15 +37,19 @@ def _is_url(source: str) -> bool:
         return False
 
 
+_io_lock = threading.Lock()
+
+
 @contextmanager
 def _quiet_convert():
-    old_out, old_err = sys.stdout, sys.stderr
-    sys.stdout = io.StringIO()
-    sys.stderr = io.StringIO()
-    try:
-        yield
-    finally:
-        sys.stdout, sys.stderr = old_out, old_err
+    with _io_lock:
+        old_out, old_err = sys.stdout, sys.stderr
+        sys.stdout = io.StringIO()
+        sys.stderr = io.StringIO()
+        try:
+            yield
+        finally:
+            sys.stdout, sys.stderr = old_out, old_err
 
 
 class ConverterEngine:
