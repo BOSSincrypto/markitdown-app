@@ -1,3 +1,3 @@
 customtkinter>=5.2.0
-markitdown[all]>=0.1.6
+markitdown[pdf,docx,pptx,xlsx,xls,outlook,audio-transcription,youtube-transcription]>=0.1.6
 youtube-transcript-api>=1.2.0
