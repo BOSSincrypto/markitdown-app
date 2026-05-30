@@ -24,7 +24,6 @@ No browser. No cloud. Runs locally on Windows, macOS, and Linux.
 <div align="center">
 <img width="461" height="369" alt="MarkItDown Desktop — Dark Mode" src="https://github.com/user-attachments/assets/3017f17d-7001-46b8-89dc-cb04d243db8e" />
 </div>
----
 
 ## ✨ Features
 
