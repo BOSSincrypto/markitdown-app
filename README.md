@@ -18,7 +18,6 @@ No browser. No cloud. Runs locally on Windows, macOS, and Linux.
 </div>
 
 
----
 
 ## 📸 Screenshots
 
