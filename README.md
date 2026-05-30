@@ -1,65 +1,81 @@
+<div align="center">
+
 # MarkItDown Desktop
 
-Cross-platform desktop GUI for [microsoft/markitdown](https://github.com/microsoft/markitdown) — convert PDF, Word, Excel, PowerPoint, images, audio, and more to Markdown.
+**Cross-platform GUI for [microsoft/markitdown](https://github.com/microsoft/markitdown)**\
+Convert PDF, Word, Excel, PowerPoint, images, audio, and more — to clean Markdown.\
+No browser. No cloud. Runs locally on Windows, macOS, and Linux.
 
-## Features
+[![Release](https://img.shields.io/github/v/release/BOSSincrypto/markitdown-app?style=flat-square&color=blue&label=Latest%20Release)](https://github.com/BOSSincrypto/markitdown-app/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/BOSSincrypto/markitdown-app/total?style=flat-square&color=green)](https://github.com/BOSSincrypto/markitdown-app/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](https://github.com/BOSSincrypto/markitdown-app/releases)
+[![Stars](https://img.shields.io/github/stars/BOSSincrypto/markitdown-app?style=flat-square&color=yellow)](https://github.com/BOSSincrypto/markitdown-app/stargazers)
 
-- **Batch conversion** — add multiple files and convert them all at once
-- **URL support** — paste YouTube or webpage URLs for conversion
-- **Live preview** — view converted Markdown output instantly
-- **Copy / Save / Save All** — export results with one click
-- **Dark & Light themes** — toggle between dark, light, and system themes
-- **Cross-platform** — runs on Windows, Linux, and macOS
-- **Lightweight** — built with CustomTkinter, no browser engine
+[⬇️ Download](#️-download) · [✨ Features](#-features) · [🚀 Quick Start](#-quick-start) · [🤝 Contributing](#-contributing)
 
-## Supported Formats
+</div>
 
-| Category | Extensions |
-|----------|-----------|
-| Documents | PDF, DOCX, PPTX, XLSX, XLS, EPUB |
-| Images | JPG, PNG, GIF, BMP, TIFF |
-| Audio | WAV, MP3 |
-| Web | HTML, RSS, YouTube URLs |
-| Data | CSV, JSON, XML |
-| Other | ZIP, Outlook MSG |
+---
 
-## Download
+## ✨ Features
 
-Go to [Releases](../../releases) and download the binary for your platform:
+| Feature | Description |
+|---|---|
+| 📁 **Batch Conversion** | Add multiple files — convert them all at once |
+| 🔗 **URL Support** | Paste YouTube or any webpage URL for instant conversion |
+| 👁️ **Live Preview** | See Markdown output in real-time as files process |
+| 💾 **One-Click Export** | Copy, Save, or Save All with a single click |
+| 🎨 **Themes** | Dark, Light, and System theme support |
+| 🖥️ **Cross-Platform** | Native binaries for Windows, macOS, and Linux |
+| ⚡ **Lightweight** | Built with CustomTkinter — zero browser engine, zero Electron |
+| 🔄 **Auto-Release CI** | Automated GitHub Actions builds on every version tag |
 
-| Platform | File | Description |
-|----------|------|-------------|
-| Windows | `MarkItDown-Windows-Setup.exe` | Installer (Start Menu + Desktop shortcut) |
-| Windows | `MarkItDown-Windows-Portable.exe` | Portable (no installation needed) |
-| Linux | `MarkItDown-Linux` | Standalone binary |
-| macOS | `MarkItDown-macOS` | Standalone binary |
+---
 
-## Run from Source
+## 📄 Supported Formats
 
-Requires Python 3.10+.
+| Category | Formats |
+|---|---|
+| 📝 Documents | PDF, DOCX, PPTX, XLSX, XLS, EPUB |
+| 🖼️ Images | JPG, PNG, GIF, BMP, TIFF |
+| 🎵 Audio | WAV, MP3 |
+| 🌐 Web | HTML, RSS, YouTube URLs |
+| 📊 Data | CSV, JSON, XML |
+| 📦 Other | ZIP, Outlook MSG |
+
+---
+
+## ⬇️ Download
+
+> No installation required for portable builds.
+
+| Platform | File | Type |
+|---|---|---|
+| 🪟 Windows | `MarkItDown-Windows-Setup.exe` | Installer (Start Menu + shortcut) |
+| 🪟 Windows | `MarkItDown-Windows-Portable.exe` | Portable — run anywhere |
+| 🐧 Linux | `MarkItDown-Linux` | Standalone binary |
+| 🍎 macOS | `MarkItDown-macOS` | Standalone binary |
+
+👉 **[Go to Releases →](https://github.com/BOSSincrypto/markitdown-app/releases/latest)**
+
+---
+
+## 🚀 Quick Start
+
+### Run from Source
+
+> Requires Python 3.10+
 
 ```bash
+git clone https://github.com/BOSSincrypto/markitdown-app.git
+cd markitdown-app
 pip install -r requirements.txt
 python run.py
 ```
 
-## Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| Ctrl+O | Add files |
-| Ctrl+S | Save current output |
-| Ctrl+Shift+S | Save all outputs |
-
-## How It Works
-
-1. Click **Add Files** (or Ctrl+O) to select files for conversion
-2. Optionally click **Add URL** to add YouTube or webpage URLs
-3. Click **Convert** to process all files in background threads
-4. Click on any file in the list to view its output
-5. Use **Copy**, **Save**, or **Save All** to export
-
-## Build Executable
+### Build Executable Yourself
 
 ```bash
 pip install pyinstaller
@@ -70,19 +86,80 @@ pyinstaller --onefile --windowed \
   run.py
 ```
 
-The executable will be in the `dist/` folder.
+Output: `dist/MarkItDown`
 
-## Auto-Release
+---
 
-Push a version tag to trigger automated builds for all platforms:
+## ⌨️ Keyboard Shortcuts
 
-```bash
-git tag v1.0.0
-git push origin v1.0.0
+| Shortcut | Action |
+|---|---|
+| `Ctrl+O` | Add files |
+| `Ctrl+S` | Save current output |
+| `Ctrl+Shift+S` | Save all outputs |
+
+---
+
+## 🔄 How It Works
+
+```
+1. Add Files  →  Click "Add Files" or drag & drop (Ctrl+O)
+2. Add URL    →  Paste any YouTube or webpage URL (optional)
+3. Convert    →  Background threads process all items in parallel
+4. Preview    →  Click any file in the list to view its Markdown
+5. Export     →  Copy / Save / Save All
 ```
 
-GitHub Actions will build executables for Windows, Linux, and macOS and attach them to a GitHub Release.
+---
 
-## License
+## 🏗️ Architecture
 
-MIT
+- **GUI**: [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — modern Tk-based UI
+- **Core**: [microsoft/markitdown](https://github.com/microsoft/markitdown) — conversion engine
+- **Builds**: [PyInstaller](https://pyinstaller.org/) + GitHub Actions CI/CD
+- **Distribution**: Pre-built binaries via GitHub Releases
+
+---
+
+## 📋 Roadmap
+
+- [ ] Drag & drop file support
+- [ ] Custom output directory
+- [ ] File history / recent files
+- [ ] Progress bar per file
+- [ ] Plugin/extension support
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome!
+
+1. Fork the repo
+2. Create a branch: `git checkout -b feature/your-feature`
+3. Commit: `git commit -m 'Add your feature'`
+4. Push: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 🔗 Related Projects
+
+- [microsoft/markitdown](https://github.com/microsoft/markitdown) — the core conversion library this app wraps
+- [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) — modern Python UI toolkit used for the GUI
+
+---
+
+## 📜 License
+
+MIT © [BOSSincrypto](https://github.com/BOSSincrypto)
+
+---
+
+<div align="center">
+
+If this tool saves you time, consider giving it a ⭐ — it helps others find it.
+
+[![Star History Chart](https://api.star-history.com/svg?repos=BOSSincrypto/markitdown-app&type=Date)](https://star-history.com/#BOSSincrypto/markitdown-app&Date)
+
+</div>
